@@ -1,13 +1,13 @@
 import React from "react";
 
-export default function Note() {
+export default function Note(props) {
     return(
         <div className="note">
             <h1>
-                Why Coding?
+                {props.title}
             </h1>
             <p>
-                Coding gives you power to gve life to your ideas.
+                {props.content}
             </p>
         </div>
     )
