@@ -5,7 +5,14 @@ import Note from "./Note";
 import CreateArea from "./CreateArea";
 
 function App() {
-  const [notes, setNotes] = useState([]);
+  const [notes, setNotes] = useState(
+    () => JSON.parse(localStorage.getItem("notes")) || []
+  );
+  
+  //adding notes to localStorage
+   React.useEffect(() => {
+        localStorage.setItem("notes", JSON.stringify(notes))
+    }, [notes])
 
   function addNote(newNote) {
     setNotes(prevNotes => {
